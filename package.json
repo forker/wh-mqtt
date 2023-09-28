@@ -4,7 +4,7 @@
   "description": "Relay HTTP webhooks to MQTT",
   "main": "main.js",
   "scripts": {
-    "start": "CONFIG_PATH=./config.yml node main.js"
+    "start": "ls -la && CONFIG_PATH=./config.yml node main.js"
   },
   "repository": {
     "type": "git",
