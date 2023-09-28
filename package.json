@@ -7,7 +7,7 @@
     "webhook-mqtt": "./main.js"
   },
   "scripts": {
-    "start": "CONFIG_PATH=config.yml node main.js"
+    "start": "CONFIG_PATH=$( pwd )/config.yml node main.js"
   },
   "repository": {
     "type": "git",
