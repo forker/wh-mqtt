@@ -4,6 +4,13 @@ const express = require('express');
 const mqttusvc = require('mqtt-usvc');
 const bodyParser = require('body-parser');
 
+authToken = process.env.AUTH_TOKEN
+
+if (!authToken) {
+  throw new Error('Define AUTH_TOKEN')
+}
+
+
 async function main() {
 
 const service = await mqttusvc.create();
@@ -14,7 +21,7 @@ app.use((req, res, next) => {
   const authorization = req.headers.authorization || '';
   const token = authorization.replace('Bearer ', '') || req.query.token;
 
-  if (!service.config.tokens.includes(token)) {
+  if (authToken != token) {
     res.status(403).send('Invalid token');
     return;
   }

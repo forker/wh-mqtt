@@ -1,0 +1,10 @@
+mqtt:
+  uri: mqtt://test.mosquitto.org/
+  prefix: webhook/
+service:
+  port: 9080
+  hooks:
+    - path: /callme # ie http://host/callme
+      method: post
+      topic: call/me # ie webhook/call/me
+      message: {} # if not provided will pass body through
