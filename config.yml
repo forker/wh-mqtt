@@ -1,10 +1,14 @@
 mqtt:
-  uri: mqtt://test.mosquitto.org/
-  prefix: webhook/
+  uri: mqtts://forker:uoWooB9ahr0c@6faadeeecc4b4386a457fb4865d86675.s1.eu.hivemq.cloud:8883
+  prefix: 
 service:
   port: 9080
   hooks:
-    - path: /callme # ie http://host/callme
+    - path: /pump/on # ie http://host/callme
       method: post
-      topic: call/me # ie webhook/call/me
-      message: {} # if not provided will pass body through
+      topic: mqtt/cmnd/tasmota_83332F/Power # ie webhook/call/me
+      message: 1  # if not provided will pass body through
+    - path: /pump/off # ie http://host/callme
+      method: post
+      topic: mqtt/cmnd/tasmota_83332F/Power # ie webhook/call/me
+      message: 0  # if not provided will pass body through
